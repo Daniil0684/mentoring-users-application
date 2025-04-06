@@ -10,12 +10,13 @@ import { LetDirective } from '@ngrx/component';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CoreUiConfirmDialogComponent } from '@users/core/ui';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FeatureTimerComponent } from '@users/users/feature-timer';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'users-detail',
   standalone: true,
-  imports: [CommonModule, DetailUsersCardComponent, MatDialogModule, LetDirective],
+  imports: [CommonModule, DetailUsersCardComponent, MatDialogModule, LetDirective, FeatureTimerComponent],
   templateUrl: './users-detail-container.component.html',
   styleUrls: ['./users-detail-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

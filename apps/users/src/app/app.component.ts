@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { authActions } from '@auth/data-access';
 import { Store } from '@ngrx/store';
@@ -10,6 +10,7 @@ import { PushPipe } from '@ngrx/component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UsersFacade } from '@users/users/data-access';
 
 @Component({
   standalone: true,
@@ -28,14 +29,19 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   private readonly store = inject(Store);
   private readonly facade = inject(AuthFacade);
+  private readonly usersFacade = inject(UsersFacade);
   public readonly isAuthenticated$: Observable<boolean> = this.facade.isAuthenticated$;
   opened!: boolean;
   events: string[] = [];
 
   constructor() {
     this.store.dispatch(authActions.getUser());
+  }
+
+  ngOnInit(): void {
+    this.usersFacade.initializeTimers(); // <--- инициализация таймеров здесь
   }
 }

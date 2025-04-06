@@ -14,4 +14,5 @@
     (openEditMode)="onOpenEditMode()"
     (deleteUser)="onDeleteUser()"
   />
+  <users-feature-timer *ngIf="vm.user" [userId]="vm.user.id"></users-feature-timer>
 </ng-container>

@@ -51,6 +51,7 @@
       "@users/users/core/ui/language-switch": ["libs/users/core/ui/language-switch/src/index.ts"],
       "@users/users/core/ui/theme-switch": ["libs/users/core/ui/theme-switch/src/index.ts"],
       "@users/users/data-access": ["libs/users/users/data-access/src/index.ts"],
+      "@users/users/feature-timer": ["libs/users/users/feature-timer/src/index.ts"],
       "@users/users/profile/data-access": ["libs/users/profile/data-access/src/index.ts"],
       "@users/users/profile/feature-profile": ["libs/users/profile/feature-profile/src/index.ts"],
       "@users/users/settings/feature-change-theme": ["libs/users/settings/feature-change-theme/src/index.ts"],

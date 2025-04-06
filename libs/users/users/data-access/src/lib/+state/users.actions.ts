@@ -1,8 +1,29 @@
 import { createAction, props } from '@ngrx/store';
 import { UsersErrors } from './users.reducer';
 import { CreateUserDTO, LoadingStatus, UsersDTO, UsersEntity } from '@users/core/data-access';
+import { TimerState } from '../models/timer.model';
 
 export type onSuccessEditionCbType = () => void;
+
+export const initializeTimer = createAction(
+  '[Timer] Initialize Timer',
+  props<{ userId: number; state: TimerState }>()
+);
+
+// Запуск таймера
+export const startTimer = createAction('[Timer] Start Timer', props<{ userId: number }>());
+
+// Остановка таймера
+export const stopTimer = createAction('[Timer] Stop Timer', props<{ userId: number }>());
+
+// Сброс таймера
+export const resetTimer = createAction('[Timer] Reset Timer', props<{ userId: number }>());
+
+// Обновление состояния таймера
+export const updateTimer = createAction(
+  '[Timer] Update Timer',
+  props<{ userId: number; state: TimerState }>()
+);
 
 export const initUsers = createAction('[Users Page] Init');
 
@@ -17,10 +38,6 @@ export const deleteUserFailed = createAction('[Users/Api] Delete User Failed', p
 export const addUser = createAction('[Users Page] Add User', props<{ userData: CreateUserDTO }>());
 export const addUserSuccess = createAction('[Users/Api] Add User Success', props<{ userData: UsersEntity }>());
 export const addUserFailed = createAction('[Users/Api] Add User Failed', props<{ error: any }>());
-
-// export const selectId = createAction('[Users Page] Select Id', props<{ id: number }>());
-
-// export const deleteSelectedId = createAction('[Users Page] Delete Selected Id');
 
 export const editUser = createAction(
   '[Users Detail] Edit User',
